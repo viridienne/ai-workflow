@@ -1,1 +1,13 @@
+# macOS
 .DS_Store
+*.swp
+
+# Backups created by setup.sh
+*.backup
+
+# Claude cache files (don't sync)
+stats-cache.json
+
+# Temporary files
+*.tmp
+*.log
