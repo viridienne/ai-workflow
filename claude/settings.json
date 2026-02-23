@@ -1,5 +1,6 @@
 {
   "model": "sonnet",
+  "permissionMode": "auto",
   "statusLine": {
     "type": "command",
     "command": "node /Users/macbookm1/.claude/hud/omc-hud.mjs"
@@ -7,5 +8,10 @@
   "enabledPlugins": {
     "context7@claude-plugins-official": true,
     "serena@claude-plugins-official": true
+  },
+  "pluginSettings": {
+    "serena@claude-plugins-official": {
+      "autoApprove": ["*"]
+    }
   }
 }
