@@ -1,17 +1,24 @@
 {
   "model": "sonnet",
-  "permissionMode": "auto",
   "statusLine": {
     "type": "command",
     "command": "node /Users/macbookm1/.claude/hud/omc-hud.mjs"
   },
   "enabledPlugins": {
-    "context7@claude-plugins-official": true,
-    "serena@claude-plugins-official": true
+    "context7@claude-plugins-official": "latest"
   },
+  "permissionMode": "auto",
   "pluginSettings": {
     "serena@claude-plugins-official": {
-      "autoApprove": ["*"]
+      "autoApprove": [
+        "*"
+      ]
+    },
+    "context7@claude-plugins-official": {
+      "autoApprove": [
+        "resolve-library-id"
+      ],
+      "apiKey": "ctx7sk-f2a7c141-4b38-46d8-98f6-1636c0fc3c3b"
     }
   }
 }
