@@ -1,119 +1,153 @@
-# AI Workflow Configuration
+# AI Workflow - Project Configuration Management
 
-Centralized repository for Claude Code configuration files, synced across devices.
+Centralized repository for managing Claude Code configurations across multiple projects.
 
-## Structure
+## Directory Structure
 
 ```
 ai-workflow/
-├── claude/
-│   ├── CLAUDE.md          # Global oh-my-claudecode config
-│   ├── settings.json      # Claude settings (model, plugins, statusLine)
-│   └── keybindings.json   # (optional) Custom keybindings
 ├── projects/
-│   └── hexa-music/
-│       └── CLAUDE.md      # Project-specific config (AGENTS.md)
-├── .gitignore             # Ignore backups and cache files
-├── setup.sh               # Setup script for new devices
-├── SETUP.md               # Quick setup guide
-└── README.md              # This file
+│   ├── hexa-music/
+│   │   ├── CLAUDE.md
+│   │   └── AGENTS.md
+│   └── [other-projects]/
+│       ├── CLAUDE.md
+│       └── AGENTS.md
+└── global/
+    ├── claude-config/    # Global Claude Code settings
+    └── mcp-servers/      # MCP server configurations
 ```
 
-## Setup on New Device
+## Quick Commands
 
-1. **Clone this repo:**
-   ```bash
-   cd ~ && git clone <your-repo-url> ai-workflow
-   ```
+### Copy Project Files TO ai-workflow
 
-2. **Run setup script:**
-   ```bash
-   cd ai-workflow
-   ./setup.sh
-   ```
-
-3. **Verify symlinks:**
-   ```bash
-   ls -la ~/.claude/CLAUDE.md
-   ls -la ~/hexa-music/AGENTS.md
-   ```
-
-## Daily Workflow
-
-### Making Changes
-
-Edit configs in **either location** (changes sync automatically via symlinks):
-- `~/.claude/CLAUDE.md` ↔️ `~/ai-workflow/claude/CLAUDE.md`
-- `~/.claude/settings.json` ↔️ `~/ai-workflow/claude/settings.json`
-- `~/hexa-music/AGENTS.md` ↔️ `~/ai-workflow/projects/hexa-music/CLAUDE.md`
-
-### Committing Changes
+Run from your **project directory** (e.g., `~/projects/hexa-music`):
 
 ```bash
+PROJECT=$(basename "$PWD") && AI_WORKFLOW=$(find ~ -maxdepth 3 -type d -name "ai-workflow" -print -quit 2>/dev/null) && mkdir -p "$AI_WORKFLOW/projects/$PROJECT" && cp CLAUDE.md AGENTS.md "$AI_WORKFLOW/projects/$PROJECT/" && echo "Copied $PROJECT files to $AI_WORKFLOW/projects/$PROJECT"
+```
+
+### Copy Project Files FROM ai-workflow
+
+Run from your **project directory** to restore files:
+
+```bash
+PROJECT=$(basename "$PWD") && AI_WORKFLOW=$(find ~ -maxdepth 3 -type d -name "ai-workflow" -print -quit 2>/dev/null) && cp "$AI_WORKFLOW/projects/$PROJECT/CLAUDE.md" "$AI_WORKFLOW/projects/$PROJECT/AGENTS.md" . && echo "Copied $PROJECT files from $AI_WORKFLOW/projects/$PROJECT"
+```
+
+### Copy Global Claude Settings TO ai-workflow
+
+```bash
+AI_WORKFLOW=$(find ~ -maxdepth 3 -type d -name "ai-workflow" -print -quit 2>/dev/null) && \
+mkdir -p "$AI_WORKFLOW/global/claude-config" && \
+cp -r ~/.config/claude/* "$AI_WORKFLOW/global/claude-config/" 2>/dev/null || true && \
+cp ~/Library/Application\ Support/Claude/* "$AI_WORKFLOW/global/claude-config/" 2>/dev/null || true && \
+[ -f ~/.claude/config.json ] && cp ~/.claude/config.json "$AI_WORKFLOW/global/claude-config/" 2>/dev/null || true && \
+echo "Copied Claude Code global settings to $AI_WORKFLOW/global/claude-config"
+```
+
+### Restore Global Claude Settings FROM ai-workflow
+
+```bash
+AI_WORKFLOW=$(find ~ -maxdepth 3 -type d -name "ai-workflow" -print -quit 2>/dev/null) && \
+mkdir -p ~/.config/claude ~/Library/Application\ Support/Claude && \
+cp -r "$AI_WORKFLOW/global/claude-config/"* ~/.config/claude/ 2>/dev/null || true && \
+cp -r "$AI_WORKFLOW/global/claude-config/"* ~/Library/Application\ Support/Claude/ 2>/dev/null || true && \
+echo "Restored global Claude configs from $AI_WORKFLOW/global/claude-config"
+```
+
+### Combined: Copy Everything TO ai-workflow
+
+Run from your **project directory**:
+
+```bash
+PROJECT=$(basename "$PWD") && \
+AI_WORKFLOW=$(find ~ -maxdepth 3 -type d -name "ai-workflow" -print -quit 2>/dev/null) && \
+mkdir -p "$AI_WORKFLOW/projects/$PROJECT" "$AI_WORKFLOW/global/claude-config" && \
+cp CLAUDE.md AGENTS.md "$AI_WORKFLOW/projects/$PROJECT/" 2>/dev/null && \
+cp -r ~/.config/claude/* "$AI_WORKFLOW/global/claude-config/" 2>/dev/null || true && \
+echo "Copied $PROJECT files and global Claude configs to $AI_WORKFLOW"
+```
+
+### Combined: Restore Everything FROM ai-workflow
+
+Run from your **project directory**:
+
+```bash
+PROJECT=$(basename "$PWD") && \
+AI_WORKFLOW=$(find ~ -maxdepth 3 -type d -name "ai-workflow" -print -quit 2>/dev/null) && \
+cp "$AI_WORKFLOW/projects/$PROJECT/CLAUDE.md" "$AI_WORKFLOW/projects/$PROJECT/AGENTS.md" . 2>/dev/null && \
+mkdir -p ~/.config/claude && \
+cp -r "$AI_WORKFLOW/global/claude-config/"* ~/.config/claude/ 2>/dev/null || true && \
+echo "Restored $PROJECT files and global configs from $AI_WORKFLOW"
+```
+
+## How It Works
+
+1. **Auto-detection**: Commands automatically detect:
+   - Current project name from directory (`hexa-music`, etc.)
+   - Location of `ai-workflow` repo (searches common locations)
+
+2. **Smart Structure**: Each project gets its own folder under `projects/`
+
+3. **Global Configs**: Shared Claude Code settings stored once in `global/`
+
+## Usage Examples
+
+### Setting up a new project
+```bash
+cd ~/projects/new-game
+# Create CLAUDE.md and AGENTS.md
+# Then run the copy TO command
+```
+
+### Syncing changes back to ai-workflow
+```bash
+cd ~/projects/hexa-music
+# Edit CLAUDE.md or AGENTS.md
+# Run copy TO command to sync
+```
+
+### Restoring to a fresh machine
+```bash
+cd ~/projects/hexa-music
+# Run copy FROM command to restore project files and global settings
+```
+
+### Daily workflow with version control
+```bash
+# After making changes
 cd ~/ai-workflow
-git status                          # See what changed
 git add .
-git commit -m "Update configs"
+git commit -m "Update hexa-music configs"
 git push
-```
 
-### Syncing to Other Devices
-
-```bash
+# On another device
 cd ~/ai-workflow
-git pull                            # Pull latest changes
-# Symlinks auto-update!
+git pull
+# Then navigate to project and run copy FROM command
 ```
 
-## Adding New Projects
+## Config Locations
 
-1. **Copy project config to repo:**
-   ```bash
-   cp ~/my-project/CLAUDE.md ~/ai-workflow/projects/my-project/CLAUDE.md
-   ```
+Claude Code checks these locations (platform-dependent):
+- `~/.config/claude/` - CLI configs (Linux/macOS)
+- `~/Library/Application Support/Claude/` - GUI configs (macOS)
+- `~/.claude/config.json` - Alternative location
 
-2. **Update setup.sh:**
-   ```bash
-   # Add this to setup.sh
-   PROJECT_PATH="$HOME/my-project"
-   if [[ -d "$PROJECT_PATH" ]]; then
-       backup_if_exists "$PROJECT_PATH/CLAUDE.md"
-       create_symlink "$REPO_DIR/projects/my-project/CLAUDE.md" "$PROJECT_PATH/CLAUDE.md"
-   fi
-   ```
+## Notes
 
-3. **Re-run setup:**
-   ```bash
-   ./setup.sh
-   ```
-
-## Troubleshooting
-
-### Symlinks not working?
-```bash
-# Check if symlink exists
-ls -la ~/.claude/CLAUDE.md
-
-# Re-run setup
-cd ~/ai-workflow && ./setup.sh
-```
-
-### Conflicts after git pull?
-```bash
-# Your changes will be in the repo (symlink target)
-# Resolve conflicts in the repo directory
-cd ~/ai-workflow
-git status
-# Fix conflicts, then commit
-```
-
-### Backup existing configs
-Backups are created automatically by `setup.sh` as `*.backup` files.
+- Commands use `2>/dev/null || true` to gracefully handle missing files
+- `mkdir -p` ensures directories exist before copying
+- Auto-detects project name using `basename "$PWD"`
+- Searches up to 3 levels deep for `ai-workflow` directory
+- All commands are idempotent and safe to run multiple times
 
 ## Benefits
 
-✅ **Version Control:** Track config changes over time
-✅ **Easy Sync:** One `git pull` syncs all devices
-✅ **Automatic:** Symlinks keep everything in sync
-✅ **Safe:** Automatic backups before linking
-✅ **Flexible:** Edit in either location
+✅ **Version Control**: Track config changes over time
+✅ **Easy Sync**: Simple commands sync configs across devices
+✅ **Auto-detection**: No need to remember paths
+✅ **Multi-project**: Manage multiple projects in one repo
+✅ **Flexible**: Copy individual projects or everything at once
