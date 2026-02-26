@@ -26,6 +26,12 @@ Unity hexagonal puzzle game (Amanotes NGD)
 | Check compilation | `read_console` | ❌ Bash tail |
 | Find scene objects | `find_gameobjects` | ❌ Manual |
 
+**⚠️ CRITICAL: insert_after_symbol / insert_before_symbol Usage:**
+- These tools insert AFTER/BEFORE the symbol's body (after closing brace)
+- ❌ To add methods to class: `insert_after_symbol(name_path="ClassName")` → inserts OUTSIDE class
+- ✅ To add methods to class: `insert_after_symbol(name_path="ClassName/LastMethodName")` → target LAST METHOD
+- Always use `find_symbol(depth=1)` first to identify the correct target symbol
+
 ## Architecture
 
 ### Core Systems
@@ -85,11 +91,24 @@ public async UniTask<bool> DoAsync(CancellationToken ct) {
 ✅ Fields > properties, early returns, `Init()` methods, `Array.Empty<T>()`
 ✅ Extension methods (`Utils/Extensions/`), one file per class
 
-**Namespace:**
+**Namespace & Using Directives:**
 ```csharp
 namespace Amanotes.Echo.HexaMusic { } // Default
 // Others: Leaderboard.UI, Analytics, Tutorial, PlayerData
-using UnityEngine; // Always use directives
+```
+
+**CRITICAL: Always use `using` directives at top, never fully qualified names in code.**
+```csharp
+// ❌ WRONG - Fully qualified in code
+var levelId = HexaMusic.GameplayManager.Instance?.GetCurrentGameSession()?.LevelId;
+HexaMusic.Analytics.AnalyticsManager.LogEvent(levelId);
+
+// ✅ CORRECT - Using directives at top
+using Amanotes.Echo.HexaMusic;
+using Amanotes.Echo.HexaMusic.Analytics;
+
+var levelId = GameplayManager.Instance?.GetCurrentGameSession()?.LevelId;
+AnalyticsManager.LogEvent(levelId);
 ```
 
 **Odin Inspector:** Always wrap with `#if ODIN_INSPECTOR`
