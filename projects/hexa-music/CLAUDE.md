@@ -76,6 +76,10 @@ public async UniTask<bool> DoAsync(CancellationToken ct) {
 }
 ```
 **Communication:** C# Events, KEventBus (Orchestra)
+- **Event-Driven Pattern:** Use UniTaskCompletionSource for request/response
+- Reduces tight coupling, enables optional features
+- Pattern: `var req = new GetDataRequestEvent(); KEventBus.Dispatch(req); var data = await req.CompletionSource.Task;`
+
 **Pooling:** BaseObjectPool<T> + IPoolable
 **UI:** Odin Inspector, TextMeshPro, uGUI
 **Performance:** ZLinq v1.5.3, Hot Reload
