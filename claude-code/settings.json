@@ -8,7 +8,6 @@
     ]
   },
   "model": "claude-sonnet-4-5-20250929",
-  "enabledPlugins": {},
   "hooks": {
     "PreToolUse": [
       {
@@ -16,11 +15,17 @@
         "hooks": [
           {
             "type": "prompt",
-            "model": "haiku",
-            "prompt": "Evaluate if the proposed code changes follow 'Clean Code' principles: 1. Meaningful names 2. Single Responsibility (functions do one thing) 3. No obvious DRY violations. Additionally, ensure modern .NET patterns are used: prefer 'is or/not', switch expressions (=>), and file-scoped namespaces. If it fails, provide a specific reason. Respond with a JSON decision: { 'decision': 'allow' | 'deny', 'reason': 'string' }."
+            "prompt": "Evaluate if the proposed code changes follow 'Clean Code' principles: 1. Meaningful names 2. Single Responsibility (functions do one thing) 3. No obvious DRY violations. Additionally, ensure modern .NET patterns are used: prefer 'is or/not', switch expressions (=>), and file-scoped namespaces. If it fails, provide a specific reason. Respond with a JSON decision: { 'decision': 'allow' | 'deny', 'reason': 'string' }.",
+            "model": "haiku"
           }
         ]
       }
     ]
-  }
+  },
+  "enabledPlugins": {
+    "superpowers@superpowers-marketplace": false,
+    "double-shot-latte@superpowers-marketplace": true,
+    "elements-of-style@superpowers-marketplace": true
+  },
+  "skipDangerousModePermissionPrompt": true
 }
