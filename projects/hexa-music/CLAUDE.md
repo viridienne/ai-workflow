@@ -7,11 +7,12 @@ Unity hexagonal puzzle game (Amanotes NGD)
 
 ## CRITICAL: Tool Usage for Spawned Agents
 
-**C# Code - Serena MCP ONLY:**
-✅ `find_symbol`, `get_symbols_overview`, `replace_symbol_body`, `insert_after/before_symbol`, `rename_symbol`, `find_referencing_symbols`, `search_for_pattern`
-❌ FORBIDDEN: Read, Edit, Write, Grep, Glob (for .cs files)
+**Serena MCP - MEMORY ONLY:**
+✅ USE Serena ONLY for memory: `read_memory`, `write_memory`, `list_memories`, `edit_memory`, `delete_memory`, `rename_memory`
+❌ NO Serena for code: NO `find_symbol`, `get_symbols_overview`, `replace_symbol_body`, `insert_after_symbol`, `search_for_pattern`
+✅ Use Read, Edit, Write, Grep, Glob for ALL code/file operations
 
-**Workflow:** `get_symbols_overview` → `find_symbol` → modify → report
+**Workflow:** Grep/Glob → Read → Edit/Write → verify
 
 **UnityMCP:** `read_console`, `refresh_unity`, `manage_scene`, `manage_gameobject`, `manage_components`, `manage_prefabs`, `batch_execute`
 **Other:** Bash (git, build), Read/Write/Edit (non-C#), Context7 MCP (docs)
@@ -19,18 +20,30 @@ Unity hexagonal puzzle game (Amanotes NGD)
 **Quick Reference:**
 | Task | Use | NOT |
 |------|-----|-----|
-| Find class/method | `find_symbol` | ❌ Grep/Read |
-| See file structure | `get_symbols_overview` | ❌ Read entire |
-| Modify method | `replace_symbol_body` | ❌ Edit |
-| Add code | `insert_after_symbol` | ❌ Edit |
+| Find class/method | Grep + Read | ❌ Serena tools |
+| See file structure | Read | ❌ Serena tools |
+| Modify method | Edit | ❌ Serena tools |
+| Add code | Edit | ❌ Serena tools |
 | Check compilation | `read_console` | ❌ Bash tail |
 | Find scene objects | `find_gameobjects` | ❌ Manual |
 
-**⚠️ CRITICAL: insert_after_symbol / insert_before_symbol Usage:**
-- These tools insert AFTER/BEFORE the symbol's body (after closing brace)
-- ❌ To add methods to class: `insert_after_symbol(name_path="ClassName")` → inserts OUTSIDE class
-- ✅ To add methods to class: `insert_after_symbol(name_path="ClassName/LastMethodName")` → target LAST METHOD
-- Always use `find_symbol(depth=1)` first to identify the correct target symbol
+## Memory Access (Serena)
+
+**✅ Use Serena memory tools for persistent knowledge:**
+- `read_memory(memory_name)`: Read specific memory by name
+- `write_memory(memory_name, content)`: Write/update memory (max chars configurable)
+- `list_memories(topic)`: List available memories, optionally filtered by topic
+- `edit_memory(memory_name, needle, repl, mode)`: Edit existing memory content
+- `delete_memory(memory_name)`: Delete a memory (requires user permission)
+- `rename_memory(old_name, new_name)`: Rename or move memory using "/" for topics
+
+**Workflow:** `list_memories()` → `read_memory(name)` OR `write_memory(name, content)`
+
+**When to use:**
+- Store architectural decisions, patterns, and learnings
+- Access cross-session knowledge about the project
+- Document bug fixes and solutions for future reference
+- Organize by topic using "/" in names (e.g., "auth/login/logic")
 
 ## Architecture
 
