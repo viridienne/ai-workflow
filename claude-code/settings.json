@@ -4,7 +4,21 @@
   },
   "permissions": {
     "allow": [
-      "Read(//Users/anh.th/Library/Logs/Unity/**)"
+      "Read(//Users/anh.th/Library/Logs/Unity/**)",
+      "Bash(openspec status --change \"fix-clef-collection-null-safety\" --json)",
+      "Bash(openspec instructions proposal --change \"fix-clef-collection-null-safety\" --json)",
+      "Bash(openspec instructions design --change \"fix-clef-collection-null-safety\" --json)",
+      "Bash(openspec instructions specs --change \"fix-clef-collection-null-safety\" --json)",
+      "Bash(openspec instructions tasks --change \"fix-clef-collection-null-safety\" --json)",
+      "Bash(openspec status --change \"fix-clef-collection-null-safety\")",
+      "Bash(openspec list --json)",
+      "Bash(openspec list)",
+      "Bash(openspec instructions apply --change \"fix-clef-collection-null-safety\" --json)",
+      "mcp__UnityMCP__validate_script",
+      "mcp__UnityMCP__get_sha",
+      "mcp__UnityMCP__execute_menu_item",
+      "Bash(openspec new change \"offline-play-restriction\")",
+      "Bash(openspec status --change \"offline-play-restriction\" --json)"
     ]
   },
   "model": "claude-sonnet-4-5-20250929",
@@ -25,7 +39,16 @@
   "enabledPlugins": {
     "superpowers@superpowers-marketplace": false,
     "double-shot-latte@superpowers-marketplace": true,
-    "elements-of-style@superpowers-marketplace": true
+    "elements-of-style@superpowers-marketplace": true,
+    "claude-mem@thedotmack": true
+  },
+  "extraKnownMarketplaces": {
+    "thedotmack": {
+      "source": {
+        "source": "github",
+        "repo": "thedotmack/claude-mem"
+      }
+    }
   },
   "skipDangerousModePermissionPrompt": true
 }
