@@ -17,16 +17,6 @@ Unity hexagonal puzzle game (Amanotes NGD)
 **UnityMCP:** `read_console`, `refresh_unity`, `manage_scene`, `manage_gameobject`, `manage_components`, `manage_prefabs`, `batch_execute`
 **Other:** Bash (git, build), Read/Write/Edit (non-C#), Context7 MCP (docs)
 
-**Quick Reference:**
-| Task | Use | NOT |
-|------|-----|-----|
-| Find class/method | Grep + Read | ❌ Serena tools |
-| See file structure | Read | ❌ Serena tools |
-| Modify method | Edit | ❌ Serena tools |
-| Add code | Edit | ❌ Serena tools |
-| Check compilation | `read_console` | ❌ Bash tail |
-| Find scene objects | `find_gameobjects` | ❌ Manual |
-
 ## Memory Access (Serena)
 
 **✅ Use Serena memory tools for persistent knowledge:**
@@ -99,40 +89,61 @@ public async UniTask<bool> DoAsync(CancellationToken ct) {
 
 ## Code Style
 
-**Never Allowed:**
-❌ Comments (except non-obvious), XML docs, #region/#pragma
-❌ try/catch (use early returns; try-finally OK), MonoBehaviour constructors
-❌ Tiny methods (<5 lines), PlayerPrefs (except local), over-engineering
+**Hard Rules (no exceptions):**
+❌ XML docs, `#region`/`#pragma`
+❌ MonoBehaviour constructors — use `Awake()` or `Init()`
+❌ `try/catch` — use early returns; `try/finally` is OK
+❌ `PlayerPrefs` for progression — use `PlayerDataManager`
+
+**Soft Rules (avoid unless clearly justified):**
+⚠️ Comments — only for non-obvious logic, never for obvious code
+⚠️ Tiny methods under 5 lines — inline unless reused or named for clarity
+⚠️ Over-engineering: helpers/abstractions used once, feature flags for trivial cases, backwards-compat shims
+
+**Naming:**
+- Fields: `_camelCase` — omit `private` (it's the default)
+- Methods/Classes: `PascalCase`; Locals/Params: `camelCase`
 
 **Preferences:**
-✅ Fields > properties, early returns, `Init()` methods, `Array.Empty<T>()`
-✅ Extension methods (`Utils/Extensions/`), one file per class
+✅ File-scoped namespaces: `namespace Foo;` not `namespace Foo { }`
+✅ `is`/`is not` over `== null`/`!= null`
+✅ Switch expressions (`=>`) over switch statements
+✅ `var` for locals when type is obvious from context
+✅ Early returns over nested conditions
+✅ Fields over properties; `Array.Empty<T>()` over `new T[0]`
+✅ Extension methods in `Utils/Extensions/`; one file per class
 
-**Namespace & Using Directives:**
+**Before/After:**
 ```csharp
-namespace Amanotes.Echo.HexaMusic { } // Default
-// Others: Leaderboard.UI, Analytics, Tutorial, PlayerData
+// ❌ WRONG
+private int _score;
+if (obj != null) { DoThing(obj); }
+try { DoWork(); } catch (Exception e) { Debug.Log(e); }
+namespace Amanotes.Echo.HexaMusic { public class Foo { } }
+
+// ✅ CORRECT
+int _score;
+if (obj is null) return;
+DoWork();
+namespace Amanotes.Echo.HexaMusic;
+public class Foo { }
 ```
 
 **CRITICAL: Always use `using` directives at top, never fully qualified names in code.**
 ```csharp
-// ❌ WRONG - Fully qualified in code
+// ❌ WRONG
 var levelId = HexaMusic.GameplayManager.Instance?.GetCurrentGameSession()?.LevelId;
-HexaMusic.Analytics.AnalyticsManager.LogEvent(levelId);
 
-// ✅ CORRECT - Using directives at top
+// ✅ CORRECT
 using Amanotes.Echo.HexaMusic;
-using Amanotes.Echo.HexaMusic.Analytics;
-
 var levelId = GameplayManager.Instance?.GetCurrentGameSession()?.LevelId;
-AnalyticsManager.LogEvent(levelId);
 ```
 
 **Odin Inspector:** Always wrap with `#if ODIN_INSPECTOR`
 
 **Performance:**
-- ZLinq: `dict.Values.AsValueEnumerable().OfType<T>()` ✅
-- Object pooling, cache components, avoid `.ToArray()` in hot paths
+- ZLinq: `dict.Values.AsValueEnumerable().OfType<T>()` — prefer over LINQ
+- Avoid `.ToArray()`/`.ToList()` in hot paths; cache components, use object pooling
 
 ## File Organization
 
