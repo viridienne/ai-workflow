@@ -1,6 +1,7 @@
 {
   "env": {
-    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1"
+    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
+    "ANTHROPIC_MODEL": "claude-sonnet-4-6"
   },
   "permissions": {
     "allow": [
@@ -35,7 +36,7 @@
       }
     }
   },
+  "alwaysThinkingEnabled": false,
   "effortLevel": "medium",
-  "skipDangerousModePermissionPrompt": true,
-  "alwaysThinkingEnabled": false
+  "skipDangerousModePermissionPrompt": true
 }
