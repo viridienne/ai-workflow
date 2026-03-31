@@ -1,0 +1,599 @@
+{
+  "numStartups": 108,
+  "installMethod": "native",
+  "autoUpdates": false,
+  "hasSeenTasksHint": true,
+  "tipsHistory": {
+    "new-user-warmup": 7,
+    "plan-mode-for-complex-tasks": 104,
+    "memory-command": 108,
+    "theme-command": 101,
+    "status-line": 103,
+    "stickers-command": 81,
+    "shift-enter": 107,
+    "colorterm-truecolor": 5,
+    "prompt-queue": 25,
+    "enter-to-steer-in-relatime": 105,
+    "todo-list": 105,
+    "install-github-app": 99,
+    "install-slack-app": 99,
+    "drag-and-drop-images": 99,
+    "paste-images-mac": 99,
+    "double-esc-code-restore": 99,
+    "continue": 100,
+    "shift-tab": 102,
+    "image-paste": 106,
+    "config-thinking-mode": 85,
+    "ultrathink-keyword": 85,
+    "btw-side-question": 85,
+    "custom-agents": 98,
+    "desktop-app": 98,
+    "web-app": 100,
+    "mobile-app": 100,
+    "permissions": 102,
+    "rename-conversation": 104,
+    "custom-commands": 104,
+    "vscode-command-install": 22,
+    "default-permission-mode-config": 105,
+    "git-worktrees": 101,
+    "terminal-setup": 106,
+    "shift-enter-setup": 106,
+    "ide-upsell-external-terminal": 87,
+    "agent-flag": 102,
+    "feedback-command": 104,
+    "color-when-multi-clauding": 106
+  },
+  "promptQueueUseCount": 11,
+  "autoConnectIde": true,
+  "cachedStatsigGates": {
+    "tengu_log_1p_events": true,
+    "code_slack_app_install_banner": false,
+    "tengu_tool_pear": false,
+    "tengu_sumi": false,
+    "tengu_prompt_suggestion": false,
+    "tengu_vscode_review_upsell": false,
+    "tengu_year_end_2025_campaign_promo": false,
+    "tengu_streaming_tool_execution2": false,
+    "tengu_vscode_onboarding": false,
+    "tengu_session_memory": false
+  },
+  "cachedDynamicConfigs": {
+    "tengu_1p_event_batch_config": {
+      "scheduledDelayMillis": 5000,
+      "maxExportBatchSize": 200,
+      "maxQueueSize": 8192
+    },
+    "tengu-top-of-feed-tip": {
+      "tip": "",
+      "color": "dim"
+    }
+  },
+  "cachedGrowthBookFeatures": {
+    "tengu_pid_based_version_locking": false,
+    "tengu_mcp_tool_search": false,
+    "tengu_disable_bypass_permissions_mode": false,
+    "strawberry_granite_flag": "OFF",
+    "persimmon_marble_flag": "marble",
+    "tengu_tool_pear": false,
+    "tengu_thinkback": false,
+    "tengu_sumi": false,
+    "tengu_ant_attribution_header_new": true,
+    "tengu_c4w_usage_limit_notifications_enabled": true,
+    "tengu_react_vulnerability_warning": true
+  },
+  "userID": "51817c86d701aa79d48b4cddee39b3b80058c4cbd85b46832f227354f94b0cbd",
+  "firstStartTime": "2025-12-28T16:04:41.379Z",
+  "sonnet45MigrationComplete": true,
+  "opus45MigrationComplete": true,
+  "changelogLastFetched": 1767001218719,
+  "officialMarketplaceAutoInstallAttempted": true,
+  "officialMarketplaceAutoInstalled": true,
+  "autoUpdatesProtectedForNative": true,
+  "thinkingMigrationComplete": true,
+  "s1mAccessCache": {
+    "0abc2fb6-27c5-4adb-9722-533b62eeb2aa": {
+      "hasAccess": false,
+      "hasAccessNotAsDefault": false,
+      "timestamp": 1768210166878
+    },
+    "4f81fc73-9534-4f08-bfc3-c2f3e17a57e0": {
+      "hasAccess": false,
+      "hasAccessNotAsDefault": false,
+      "timestamp": 1772001305217
+    },
+    "e37b53a4-3703-4977-b582-455cb989b480": {
+      "hasAccess": false,
+      "hasAccessNotAsDefault": false,
+      "timestamp": 1773634042594
+    }
+  },
+  "projects": {
+    "/Users/anh.th/hexa-music": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {
+        "UnityMCP": {
+          "type": "http",
+          "url": "http://localhost:8080/mcp"
+        }
+      },
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": true,
+      "projectOnboardingSeenCount": 1,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [
+        "GameplayManager.cs",
+        "LevelCreatorWindow.cs",
+        "WinState.cs",
+        "StackedCell.cs",
+        "LevelDatabase.asset"
+      ],
+      "exampleFilesGeneratedAt": 1776842862948,
+      "hasCompletedProjectOnboarding": true,
+      "reactVulnerabilityCache": {
+        "detected": false,
+        "package": null,
+        "packageName": null,
+        "version": null,
+        "packageManager": null
+      },
+      "lastCost": 4.977919649999999,
+      "lastAPIDuration": 667272,
+      "lastAPIDurationWithoutRetries": 667226,
+      "lastToolDuration": 92062,
+      "lastDuration": 4024616,
+      "lastLinesAdded": 359,
+      "lastLinesRemoved": 31,
+      "lastTotalInputTokens": 7684,
+      "lastTotalOutputTokens": 31901,
+      "lastTotalCacheCreationInputTokens": 215145,
+      "lastTotalCacheReadInputTokens": 12231863,
+      "lastTotalWebSearchRequests": 0,
+      "lastModelUsage": {
+        "claude-sonnet-4-6": {
+          "inputTokens": 7684,
+          "outputTokens": 31901,
+          "cacheReadInputTokens": 12231863,
+          "cacheCreationInputTokens": 215145,
+          "webSearchRequests": 0,
+          "costUSD": 4.977919649999999
+        }
+      },
+      "lastSessionId": "735ef3db-885b-4d7d-a8d4-ad595cc10943",
+      "disabledMcpServers": [],
+      "lastSessionMetrics": {
+        "frame_duration_ms_count": 12478,
+        "frame_duration_ms_min": 0.050958000123500824,
+        "frame_duration_ms_max": 71.58241599984467,
+        "frame_duration_ms_avg": 1.9913968786654512,
+        "frame_duration_ms_p50": 1.6337079998629633,
+        "frame_duration_ms_p95": 4.338131249905562,
+        "frame_duration_ms_p99": 6.900424679825076,
+        "hook_duration_ms_count": 93,
+        "hook_duration_ms_min": 0,
+        "hook_duration_ms_max": 1568,
+        "hook_duration_ms_avg": 36.12903225806452,
+        "hook_duration_ms_p50": 0,
+        "hook_duration_ms_p95": 108.19999999999997,
+        "hook_duration_ms_p99": 256.07999999999754,
+        "pre_tool_hook_duration_ms_count": 86,
+        "pre_tool_hook_duration_ms_min": 0,
+        "pre_tool_hook_duration_ms_max": 4,
+        "pre_tool_hook_duration_ms_avg": 0.36046511627906974,
+        "pre_tool_hook_duration_ms_p50": 0,
+        "pre_tool_hook_duration_ms_p95": 3,
+        "pre_tool_hook_duration_ms_p99": 4
+      }
+    },
+    "/Users/anh.th": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {
+        "context7": {
+          "type": "stdio",
+          "command": "npx",
+          "args": [
+            "-y",
+            "@upstash/context7-mcp",
+            "--api-key",
+            "ctx7sk-dff72425-6c6d-4130-b9fb-d9415d260e44"
+          ],
+          "env": {}
+        }
+      },
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": false,
+      "projectOnboardingSeenCount": 4,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "reactVulnerabilityCache": {
+        "detected": false,
+        "package": null,
+        "packageName": null,
+        "version": null,
+        "packageManager": null
+      },
+      "lastCost": 0.07624095,
+      "lastAPIDuration": 4421,
+      "lastAPIDurationWithoutRetries": 4420,
+      "lastToolDuration": 0,
+      "lastDuration": 128116,
+      "lastLinesAdded": 0,
+      "lastLinesRemoved": 0,
+      "lastTotalInputTokens": 6,
+      "lastTotalOutputTokens": 66,
+      "lastTotalCacheCreationInputTokens": 19549,
+      "lastTotalCacheReadInputTokens": 6414,
+      "lastTotalWebSearchRequests": 0,
+      "lastFpsAverage": 2.22,
+      "lastFpsLow1Pct": 245.87,
+      "lastModelUsage": {
+        "claude-sonnet-4-6": {
+          "inputTokens": 6,
+          "outputTokens": 66,
+          "cacheReadInputTokens": 6414,
+          "cacheCreationInputTokens": 19549,
+          "webSearchRequests": 0,
+          "costUSD": 0.07624095
+        }
+      },
+      "lastSessionId": "12dc2033-e2a6-49cc-ae25-dbe46dce1fd5",
+      "lastSessionMetrics": {
+        "frame_duration_ms_count": 284,
+        "frame_duration_ms_min": 0.03620799999043811,
+        "frame_duration_ms_max": 7.848874999996042,
+        "frame_duration_ms_avg": 0.6430585176052865,
+        "frame_duration_ms_p50": 0.3966459999974177,
+        "frame_duration_ms_p95": 1.9372143999908977,
+        "frame_duration_ms_p99": 3.7166923599984214,
+        "hook_duration_ms_count": 3,
+        "hook_duration_ms_min": 154,
+        "hook_duration_ms_max": 370,
+        "hook_duration_ms_avg": 286.3333333333333,
+        "hook_duration_ms_p50": 335,
+        "hook_duration_ms_p95": 366.5,
+        "hook_duration_ms_p99": 369.3
+      }
+    }
+  },
+  "claudeCodeFirstTokenDate": "2025-06-23T08:09:48.917949Z",
+  "shiftEnterKeyBindingInstalled": true,
+  "hasCompletedOnboarding": true,
+  "lastOnboardingVersion": "2.1.1",
+  "lastReleaseNotesSeen": "2.1.76",
+  "hasShownOpus45Notice": {
+    "0abc2fb6-27c5-4adb-9722-533b62eeb2aa": true,
+    "4f81fc73-9534-4f08-bfc3-c2f3e17a57e0": true,
+    "e37b53a4-3703-4977-b582-455cb989b480": true
+  },
+  "hasIdeOnboardingBeenShown": {
+    "rider": true
+  },
+  "groveConfigCache": {
+    "807a1558-6178-45d6-9835-9536fd8a321c": {
+      "grove_enabled": true,
+      "timestamp": 1767844887556
+    },
+    "6fa3b096-d4c7-47d1-ad89-2f2392f16a0d": {
+      "grove_enabled": true,
+      "timestamp": 1770865353124
+    },
+    "4160aabc-0b18-4a7a-b059-bf37188e9f8d": {
+      "grove_enabled": true,
+      "timestamp": 1774829274026
+    }
+  },
+  "skillUsage": {
+    "superpowers:writing-plans": {
+      "usageCount": 9,
+      "lastUsedAt": 1772690280509
+    },
+    "superpowers:brainstorm": {
+      "usageCount": 9,
+      "lastUsedAt": 1768791376542
+    },
+    "superpowers:brainstorming": {
+      "usageCount": 13,
+      "lastUsedAt": 1772689102245
+    },
+    "superpowers:write-plan": {
+      "usageCount": 1,
+      "lastUsedAt": 1768279253478
+    },
+    "superpowers:execute-plan": {
+      "usageCount": 2,
+      "lastUsedAt": 1768379904293
+    },
+    "superpowers:executing-plans": {
+      "usageCount": 2,
+      "lastUsedAt": 1768379907928
+    },
+    "handoff-to-kiro": {
+      "usageCount": 2,
+      "lastUsedAt": 1768375828899
+    },
+    "superpowers:subagent-driven-development": {
+      "usageCount": 4,
+      "lastUsedAt": 1772690538353
+    },
+    "superpowers:finishing-a-development-branch": {
+      "usageCount": 2,
+      "lastUsedAt": 1772693832943
+    },
+    "superpowers:using-git-worktrees": {
+      "usageCount": 1,
+      "lastUsedAt": 1768531583011
+    },
+    "execute-plan": {
+      "usageCount": 2,
+      "lastUsedAt": 1769589013974
+    },
+    "oh-my-claudecode:omc-setup": {
+      "usageCount": 1,
+      "lastUsedAt": 1769488144734
+    },
+    "oh-my-claudecode:hud": {
+      "usageCount": 1,
+      "lastUsedAt": 1769488168034
+    },
+    "oh-my-claudecode:mcp-setup": {
+      "usageCount": 1,
+      "lastUsedAt": 1769488278406
+    },
+    "oh-my-claudecode:ecomode": {
+      "usageCount": 23,
+      "lastUsedAt": 1770177777428
+    },
+    "init": {
+      "usageCount": 1,
+      "lastUsedAt": 1772013499478
+    },
+    "superpowers:requesting-code-review": {
+      "usageCount": 1,
+      "lastUsedAt": 1772691018652
+    },
+    "gsd:map-codebase": {
+      "usageCount": 1,
+      "lastUsedAt": 1772694806210
+    },
+    "openspec-explore": {
+      "usageCount": 7,
+      "lastUsedAt": 1774846300963
+    },
+    "opsx:explore": {
+      "usageCount": 62,
+      "lastUsedAt": 1774932518713
+    },
+    "opsx:propose": {
+      "usageCount": 18,
+      "lastUsedAt": 1774858587213
+    },
+    "opsx:apply": {
+      "usageCount": 18,
+      "lastUsedAt": 1774858721556
+    },
+    "opsx:archive": {
+      "usageCount": 14,
+      "lastUsedAt": 1774859043911
+    },
+    "make-decision": {
+      "usageCount": 1,
+      "lastUsedAt": 1773649842317
+    },
+    "openspec-apply-change": {
+      "usageCount": 1,
+      "lastUsedAt": 1773664408896
+    },
+    "openspec-archive-change": {
+      "usageCount": 3,
+      "lastUsedAt": 1774000324014
+    },
+    "openspec-propose": {
+      "usageCount": 1,
+      "lastUsedAt": 1773908498016
+    },
+    "everything-claude-code:plan": {
+      "usageCount": 1,
+      "lastUsedAt": 1774940217153
+    }
+  },
+  "subscriptionNoticeCount": 0,
+  "hasAvailableSubscription": false,
+  "lastPlanModeUse": 1774257260067,
+  "opusProMigrationComplete": true,
+  "opusProMigrationTimestamp": 1769508501405,
+  "hasIdeAutoConnectDialogBeenShown": true,
+  "clientDataCache": {
+    "data": null,
+    "timestamp": 1773634394651
+  },
+  "mcpServers": {
+    "serena": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": [
+        "--from",
+        "git+https://github.com/oraios/serena",
+        "serena",
+        "start-mcp-server",
+        "--context=claude-code",
+        "--project-from-cwd"
+      ],
+      "env": {}
+    },
+    "Context7": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp"
+      ],
+      "env": {
+        "CONTEXT7_API_KEY": "ctx7sk-f2a7c141-4b38-46d8-98f6-1636c0fc3c3b"
+      }
+    }
+  },
+  "sonnet1m45MigrationComplete": true,
+  "penguinModeOrgEnabled": false,
+  "cachedExtraUsageDisabledReason": "org_level_disabled",
+  "toolUsage": {
+    "mcp__serena__get_symbols_overview": {
+      "usageCount": 53,
+      "lastUsedAt": 1773231376599
+    },
+    "mcp__serena__search_for_pattern": {
+      "usageCount": 197,
+      "lastUsedAt": 1773313723682
+    },
+    "mcp__serena__find_symbol": {
+      "usageCount": 493,
+      "lastUsedAt": 1773313741686
+    },
+    "mcp__serena__replace_symbol_body": {
+      "usageCount": 191,
+      "lastUsedAt": 1773313861801
+    },
+    "mcp__UnityMCP__refresh_unity": {
+      "usageCount": 73,
+      "lastUsedAt": 1773315846324
+    },
+    "mcp__UnityMCP__read_console": {
+      "usageCount": 136,
+      "lastUsedAt": 1773634818376
+    },
+    "mcp__serena__read_memory": {
+      "usageCount": 43,
+      "lastUsedAt": 1774436400249
+    },
+    "mcp__serena__insert_after_symbol": {
+      "usageCount": 18,
+      "lastUsedAt": 1773313746451
+    },
+    "mcp__serena__find_referencing_symbols": {
+      "usageCount": 4,
+      "lastUsedAt": 1773140122879
+    },
+    "mcp__serena__list_memories": {
+      "usageCount": 4,
+      "lastUsedAt": 1773309790286
+    },
+    "mcp__serena__list_dir": {
+      "usageCount": 3,
+      "lastUsedAt": 1772768358166
+    },
+    "TodoWrite": {
+      "usageCount": 105,
+      "lastUsedAt": 1774436702964
+    },
+    "mcp__UnityMCP__apply_text_edits": {
+      "usageCount": 12,
+      "lastUsedAt": 1773136183929
+    },
+    "Read": {
+      "usageCount": 320,
+      "lastUsedAt": 1774438717011
+    },
+    "Edit": {
+      "usageCount": 240,
+      "lastUsedAt": 1774437828379
+    },
+    "Bash": {
+      "usageCount": 244,
+      "lastUsedAt": 1774438697679
+    },
+    "mcp__serena__insert_before_symbol": {
+      "usageCount": 3,
+      "lastUsedAt": 1773136155009
+    },
+    "mcp__UnityMCP__manage_script": {
+      "usageCount": 1,
+      "lastUsedAt": 1772772735520
+    },
+    "Write": {
+      "usageCount": 38,
+      "lastUsedAt": 1773652297287
+    },
+    "mcp__serena__edit_memory": {
+      "usageCount": 8,
+      "lastUsedAt": 1773634694619
+    },
+    "mcp__serena__find_file": {
+      "usageCount": 31,
+      "lastUsedAt": 1773314148902
+    },
+    "mcp__UnityMCP__manage_prefabs": {
+      "usageCount": 3,
+      "lastUsedAt": 1772800046441
+    },
+    "Skill": {
+      "usageCount": 6,
+      "lastUsedAt": 1773664408904
+    },
+    "mcp__UnityMCP__validate_script": {
+      "usageCount": 8,
+      "lastUsedAt": 1773291743974
+    },
+    "mcp__UnityMCP__get_sha": {
+      "usageCount": 2,
+      "lastUsedAt": 1773057571869
+    },
+    "mcp__UnityMCP__execute_menu_item": {
+      "usageCount": 4,
+      "lastUsedAt": 1773314924536
+    },
+    "mcp__serena__check_onboarding_performed": {
+      "usageCount": 1,
+      "lastUsedAt": 1773052534091
+    },
+    "Grep": {
+      "usageCount": 140,
+      "lastUsedAt": 1774438671819
+    },
+    "Glob": {
+      "usageCount": 29,
+      "lastUsedAt": 1774438692411
+    },
+    "AskUserQuestion": {
+      "usageCount": 4,
+      "lastUsedAt": 1773311774793
+    },
+    "mcp__serena__write_memory": {
+      "usageCount": 3,
+      "lastUsedAt": 1773309813276
+    },
+    "mcp__UnityMCP__batch_execute": {
+      "usageCount": 1,
+      "lastUsedAt": 1773291735142
+    },
+    "Agent": {
+      "usageCount": 4,
+      "lastUsedAt": 1774438624644
+    },
+    "ListMcpResourcesTool": {
+      "usageCount": 5,
+      "lastUsedAt": 1774438463688
+    },
+    "mcp__UnityMCP__manage_editor": {
+      "usageCount": 1,
+      "lastUsedAt": 1774438755576
+    }
+  },
+  "voiceNoticeSeenCount": 3,
+  "showSpinnerTree": false,
+  "oauthAccount": {
+    "accountUuid": "4160aabc-0b18-4a7a-b059-bf37188e9f8d",
+    "emailAddress": "anh.th@amanotes.com",
+    "organizationUuid": "e37b53a4-3703-4977-b582-455cb989b480",
+    "hasExtraUsageEnabled": false,
+    "billingType": "stripe_subscription",
+    "accountCreatedAt": "2025-02-25T09:58:26.202036Z",
+    "subscriptionCreatedAt": "2026-02-06T09:20:17.833292Z",
+    "displayName": "Hoàng Anh",
+    "organizationRole": "admin",
+    "workspaceRole": null,
+    "organizationName": "anh.th@amanotes.com's Organization"
+  },
+  "ideHintShownCount": 2
+}

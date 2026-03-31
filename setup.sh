@@ -40,9 +40,15 @@ backup_if_exists "$CLAUDE_DIR/CLAUDE.md"
 create_symlink "$REPO_DIR/claude/CLAUDE.md" "$CLAUDE_DIR/CLAUDE.md"
 
 # 2. Settings (optional)
-if [[ -f "$REPO_DIR/claude/settings.json" ]]; then
+if [[ -f "$REPO_DIR/claude-code/settings.json" ]]; then
     backup_if_exists "$CLAUDE_DIR/settings.json"
-    create_symlink "$REPO_DIR/claude/settings.json" "$CLAUDE_DIR/settings.json"
+    create_symlink "$REPO_DIR/claude-code/settings.json" "$CLAUDE_DIR/settings.json"
+fi
+
+# 3. claude.json (MCP servers + global config)
+if [[ -f "$REPO_DIR/claude-code/claude.json" ]]; then
+    backup_if_exists "$HOME/.claude.json"
+    create_symlink "$REPO_DIR/claude-code/claude.json" "$HOME/.claude.json"
 fi
 
 # 3. Keybindings (optional)

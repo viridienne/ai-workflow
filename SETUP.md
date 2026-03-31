@@ -58,10 +58,13 @@ ls -la ~/.claude/CLAUDE.md
 
 Your configs are now synced. Edit anywhere:
 - `~/.claude/CLAUDE.md` ↔️ `~/ai-workflow/claude/CLAUDE.md`
-- `~/.claude/settings.json` ↔️ `~/ai-workflow/claude/settings.json`
+- `~/.claude/settings.json` ↔️ `~/ai-workflow/claude-code/settings.json`
+- `~/.claude.json` ↔️ `~/ai-workflow/claude-code/claude.json` (includes MCP servers)
 - `~/hexa-music/AGENTS.md` ↔️ `~/ai-workflow/projects/hexa-music/CLAUDE.md`
 
 Changes sync automatically via symlinks. Use Fork to commit/push/pull.
+
+> ⚠️ `claude.json` contains account identifiers (email, UUID). Keep this repo **private**.
 
 ---
 
