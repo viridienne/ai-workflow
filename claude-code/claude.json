@@ -1,11 +1,11 @@
 {
-  "numStartups": 108,
+  "numStartups": 113,
   "installMethod": "native",
   "autoUpdates": false,
   "hasSeenTasksHint": true,
   "tipsHistory": {
     "new-user-warmup": 7,
-    "plan-mode-for-complex-tasks": 104,
+    "plan-mode-for-complex-tasks": 109,
     "memory-command": 108,
     "theme-command": 101,
     "status-line": 103,
@@ -15,27 +15,27 @@
     "prompt-queue": 25,
     "enter-to-steer-in-relatime": 105,
     "todo-list": 105,
-    "install-github-app": 99,
-    "install-slack-app": 99,
-    "drag-and-drop-images": 99,
-    "paste-images-mac": 99,
-    "double-esc-code-restore": 99,
-    "continue": 100,
-    "shift-tab": 102,
+    "install-github-app": 109,
+    "install-slack-app": 109,
+    "drag-and-drop-images": 109,
+    "paste-images-mac": 109,
+    "double-esc-code-restore": 109,
+    "continue": 110,
+    "shift-tab": 112,
     "image-paste": 106,
     "config-thinking-mode": 85,
     "ultrathink-keyword": 85,
     "btw-side-question": 85,
-    "custom-agents": 98,
-    "desktop-app": 98,
+    "custom-agents": 113,
+    "desktop-app": 113,
     "web-app": 100,
     "mobile-app": 100,
-    "permissions": 102,
+    "permissions": 112,
     "rename-conversation": 104,
     "custom-commands": 104,
     "vscode-command-install": 22,
     "default-permission-mode-config": 105,
-    "git-worktrees": 101,
+    "git-worktrees": 111,
     "terminal-setup": 106,
     "shift-enter-setup": 106,
     "ide-upsell-external-terminal": 87,
@@ -43,8 +43,7 @@
     "feedback-command": 104,
     "color-when-multi-clauding": 106
   },
-  "promptQueueUseCount": 11,
-  "autoConnectIde": true,
+  "promptQueueUseCount": 12,
   "cachedStatsigGates": {
     "tengu_log_1p_events": true,
     "code_slack_app_install_banner": false,
@@ -139,52 +138,45 @@
         "version": null,
         "packageManager": null
       },
-      "lastCost": 4.977919649999999,
-      "lastAPIDuration": 667272,
-      "lastAPIDurationWithoutRetries": 667226,
-      "lastToolDuration": 92062,
-      "lastDuration": 4024616,
-      "lastLinesAdded": 359,
-      "lastLinesRemoved": 31,
-      "lastTotalInputTokens": 7684,
-      "lastTotalOutputTokens": 31901,
-      "lastTotalCacheCreationInputTokens": 215145,
-      "lastTotalCacheReadInputTokens": 12231863,
+      "lastCost": 0,
+      "lastAPIDuration": 0,
+      "lastAPIDurationWithoutRetries": 0,
+      "lastToolDuration": 0,
+      "lastDuration": 15261,
+      "lastLinesAdded": 0,
+      "lastLinesRemoved": 0,
+      "lastTotalInputTokens": 0,
+      "lastTotalOutputTokens": 0,
+      "lastTotalCacheCreationInputTokens": 0,
+      "lastTotalCacheReadInputTokens": 0,
       "lastTotalWebSearchRequests": 0,
-      "lastModelUsage": {
-        "claude-sonnet-4-6": {
-          "inputTokens": 7684,
-          "outputTokens": 31901,
-          "cacheReadInputTokens": 12231863,
-          "cacheCreationInputTokens": 215145,
-          "webSearchRequests": 0,
-          "costUSD": 4.977919649999999
-        }
-      },
-      "lastSessionId": "735ef3db-885b-4d7d-a8d4-ad595cc10943",
-      "disabledMcpServers": [],
+      "lastModelUsage": {},
+      "lastSessionId": "914fb035-bc29-444a-abf3-e77ec8919db3",
+      "disabledMcpServers": [
+        "Context7"
+      ],
       "lastSessionMetrics": {
-        "frame_duration_ms_count": 12478,
-        "frame_duration_ms_min": 0.050958000123500824,
-        "frame_duration_ms_max": 71.58241599984467,
-        "frame_duration_ms_avg": 1.9913968786654512,
-        "frame_duration_ms_p50": 1.6337079998629633,
-        "frame_duration_ms_p95": 4.338131249905562,
-        "frame_duration_ms_p99": 6.900424679825076,
-        "hook_duration_ms_count": 93,
+        "frame_duration_ms_count": 21588,
+        "frame_duration_ms_min": 0.0444590000001881,
+        "frame_duration_ms_max": 94.36612499970943,
+        "frame_duration_ms_avg": 2.0696028408878973,
+        "frame_duration_ms_p50": 2.0532499999389984,
+        "frame_duration_ms_p95": 3.3545125999953593,
+        "frame_duration_ms_p99": 6.051345570469273,
+        "hook_duration_ms_count": 42,
         "hook_duration_ms_min": 0,
-        "hook_duration_ms_max": 1568,
-        "hook_duration_ms_avg": 36.12903225806452,
-        "hook_duration_ms_p50": 0,
-        "hook_duration_ms_p95": 108.19999999999997,
-        "hook_duration_ms_p99": 256.07999999999754,
-        "pre_tool_hook_duration_ms_count": 86,
-        "pre_tool_hook_duration_ms_min": 0,
-        "pre_tool_hook_duration_ms_max": 4,
-        "pre_tool_hook_duration_ms_avg": 0.36046511627906974,
-        "pre_tool_hook_duration_ms_p50": 0,
-        "pre_tool_hook_duration_ms_p95": 3,
-        "pre_tool_hook_duration_ms_p99": 4
+        "hook_duration_ms_max": 1333,
+        "hook_duration_ms_avg": 251.26190476190476,
+        "hook_duration_ms_p50": 210.5,
+        "hook_duration_ms_p95": 615.7499999999999,
+        "hook_duration_ms_p99": 1083.3099999999977,
+        "pre_tool_hook_duration_ms_count": 17,
+        "pre_tool_hook_duration_ms_min": 104,
+        "pre_tool_hook_duration_ms_max": 325,
+        "pre_tool_hook_duration_ms_avg": 196.11764705882354,
+        "pre_tool_hook_duration_ms_p50": 204,
+        "pre_tool_hook_duration_ms_p95": 295.4,
+        "pre_tool_hook_duration_ms_p99": 319.08
       }
     },
     "/Users/anh.th": {
@@ -216,46 +208,37 @@
         "version": null,
         "packageManager": null
       },
-      "lastCost": 0.07624095,
-      "lastAPIDuration": 4421,
-      "lastAPIDurationWithoutRetries": 4420,
+      "lastCost": 0,
+      "lastAPIDuration": 0,
+      "lastAPIDurationWithoutRetries": 0,
       "lastToolDuration": 0,
-      "lastDuration": 128116,
+      "lastDuration": 36676,
       "lastLinesAdded": 0,
       "lastLinesRemoved": 0,
-      "lastTotalInputTokens": 6,
-      "lastTotalOutputTokens": 66,
-      "lastTotalCacheCreationInputTokens": 19549,
-      "lastTotalCacheReadInputTokens": 6414,
+      "lastTotalInputTokens": 0,
+      "lastTotalOutputTokens": 0,
+      "lastTotalCacheCreationInputTokens": 0,
+      "lastTotalCacheReadInputTokens": 0,
       "lastTotalWebSearchRequests": 0,
-      "lastFpsAverage": 2.22,
-      "lastFpsLow1Pct": 245.87,
-      "lastModelUsage": {
-        "claude-sonnet-4-6": {
-          "inputTokens": 6,
-          "outputTokens": 66,
-          "cacheReadInputTokens": 6414,
-          "cacheCreationInputTokens": 19549,
-          "webSearchRequests": 0,
-          "costUSD": 0.07624095
-        }
-      },
-      "lastSessionId": "12dc2033-e2a6-49cc-ae25-dbe46dce1fd5",
+      "lastFpsAverage": 2.5,
+      "lastFpsLow1Pct": 59.45,
+      "lastModelUsage": {},
+      "lastSessionId": "bc578f92-ec90-4c6b-8069-7f15d6a2c95a",
       "lastSessionMetrics": {
-        "frame_duration_ms_count": 284,
-        "frame_duration_ms_min": 0.03620799999043811,
-        "frame_duration_ms_max": 7.848874999996042,
-        "frame_duration_ms_avg": 0.6430585176052865,
-        "frame_duration_ms_p50": 0.3966459999974177,
-        "frame_duration_ms_p95": 1.9372143999908977,
-        "frame_duration_ms_p99": 3.7166923599984214,
-        "hook_duration_ms_count": 3,
-        "hook_duration_ms_min": 154,
-        "hook_duration_ms_max": 370,
-        "hook_duration_ms_avg": 286.3333333333333,
-        "hook_duration_ms_p50": 335,
-        "hook_duration_ms_p95": 366.5,
-        "hook_duration_ms_p99": 369.3
+        "frame_duration_ms_count": 91,
+        "frame_duration_ms_min": 0.03966700000091805,
+        "frame_duration_ms_max": 16.821750000000065,
+        "frame_duration_ms_avg": 1.3099106703296863,
+        "frame_duration_ms_p50": 0.5179580000003625,
+        "frame_duration_ms_p95": 4.819229500000006,
+        "frame_duration_ms_p99": 10.623562499999895,
+        "hook_duration_ms_count": 1,
+        "hook_duration_ms_min": 312,
+        "hook_duration_ms_max": 312,
+        "hook_duration_ms_avg": 312,
+        "hook_duration_ms_p50": 312,
+        "hook_duration_ms_p95": 312,
+        "hook_duration_ms_p99": 312
       }
     }
   },
@@ -364,8 +347,8 @@
       "lastUsedAt": 1774846300963
     },
     "opsx:explore": {
-      "usageCount": 62,
-      "lastUsedAt": 1774932518713
+      "usageCount": 67,
+      "lastUsedAt": 1775033263570
     },
     "opsx:propose": {
       "usageCount": 18,
@@ -398,6 +381,18 @@
     "everything-claude-code:plan": {
       "usageCount": 1,
       "lastUsedAt": 1774940217153
+    },
+    "everything-claude-code:refactor-clean": {
+      "usageCount": 3,
+      "lastUsedAt": 1775019121954
+    },
+    "click-path-audit": {
+      "usageCount": 1,
+      "lastUsedAt": 1774951463195
+    },
+    "statusline": {
+      "usageCount": 1,
+      "lastUsedAt": 1775024035610
     }
   },
   "subscriptionNoticeCount": 0,
@@ -595,5 +590,5 @@
     "workspaceRole": null,
     "organizationName": "anh.th@amanotes.com's Organization"
   },
-  "ideHintShownCount": 2
+  "ideHintShownCount": 3
 }
