@@ -1,11 +1,11 @@
 {
-  "numStartups": 113,
+  "numStartups": 117,
   "installMethod": "native",
   "autoUpdates": false,
   "hasSeenTasksHint": true,
   "tipsHistory": {
     "new-user-warmup": 7,
-    "plan-mode-for-complex-tasks": 109,
+    "plan-mode-for-complex-tasks": 114,
     "memory-command": 108,
     "theme-command": 101,
     "status-line": 103,
@@ -28,22 +28,22 @@
     "btw-side-question": 85,
     "custom-agents": 113,
     "desktop-app": 113,
-    "web-app": 100,
-    "mobile-app": 100,
+    "web-app": 115,
+    "mobile-app": 115,
     "permissions": 112,
     "rename-conversation": 104,
     "custom-commands": 104,
     "vscode-command-install": 22,
-    "default-permission-mode-config": 105,
+    "default-permission-mode-config": 115,
     "git-worktrees": 111,
-    "terminal-setup": 106,
-    "shift-enter-setup": 106,
+    "terminal-setup": 117,
+    "shift-enter-setup": 117,
     "ide-upsell-external-terminal": 87,
-    "agent-flag": 102,
+    "agent-flag": 117,
     "feedback-command": 104,
-    "color-when-multi-clauding": 106
+    "color-when-multi-clauding": 117
   },
-  "promptQueueUseCount": 12,
+  "promptQueueUseCount": 16,
   "cachedStatsigGates": {
     "tengu_log_1p_events": true,
     "code_slack_app_install_banner": false,
@@ -142,7 +142,7 @@
       "lastAPIDuration": 0,
       "lastAPIDurationWithoutRetries": 0,
       "lastToolDuration": 0,
-      "lastDuration": 15261,
+      "lastDuration": 1352400,
       "lastLinesAdded": 0,
       "lastLinesRemoved": 0,
       "lastTotalInputTokens": 0,
@@ -151,33 +151,35 @@
       "lastTotalCacheReadInputTokens": 0,
       "lastTotalWebSearchRequests": 0,
       "lastModelUsage": {},
-      "lastSessionId": "914fb035-bc29-444a-abf3-e77ec8919db3",
+      "lastSessionId": "19d9fde0-3c57-4f44-be59-655981275b00",
       "disabledMcpServers": [
         "Context7"
       ],
       "lastSessionMetrics": {
-        "frame_duration_ms_count": 21588,
-        "frame_duration_ms_min": 0.0444590000001881,
-        "frame_duration_ms_max": 94.36612499970943,
-        "frame_duration_ms_avg": 2.0696028408878973,
-        "frame_duration_ms_p50": 2.0532499999389984,
-        "frame_duration_ms_p95": 3.3545125999953593,
-        "frame_duration_ms_p99": 6.051345570469273,
-        "hook_duration_ms_count": 42,
+        "frame_duration_ms_count": 52739,
+        "frame_duration_ms_min": 0.017416998744010925,
+        "frame_duration_ms_max": 91.55020800232887,
+        "frame_duration_ms_avg": 1.5937707135048536,
+        "frame_duration_ms_p50": 1.3546040002256632,
+        "frame_duration_ms_p95": 3.275633950158951,
+        "frame_duration_ms_p99": 5.057725569307801,
+        "hook_duration_ms_count": 739,
         "hook_duration_ms_min": 0,
-        "hook_duration_ms_max": 1333,
-        "hook_duration_ms_avg": 251.26190476190476,
-        "hook_duration_ms_p50": 210.5,
-        "hook_duration_ms_p95": 615.7499999999999,
-        "hook_duration_ms_p99": 1083.3099999999977,
-        "pre_tool_hook_duration_ms_count": 17,
-        "pre_tool_hook_duration_ms_min": 104,
-        "pre_tool_hook_duration_ms_max": 325,
-        "pre_tool_hook_duration_ms_avg": 196.11764705882354,
-        "pre_tool_hook_duration_ms_p50": 204,
-        "pre_tool_hook_duration_ms_p95": 295.4,
-        "pre_tool_hook_duration_ms_p99": 319.08
-      }
+        "hook_duration_ms_max": 5339,
+        "hook_duration_ms_avg": 184.1339648173207,
+        "hook_duration_ms_p50": 109,
+        "hook_duration_ms_p95": 554.1,
+        "hook_duration_ms_p99": 1469.06,
+        "pre_tool_hook_duration_ms_count": 341,
+        "pre_tool_hook_duration_ms_min": 90,
+        "pre_tool_hook_duration_ms_max": 5340,
+        "pre_tool_hook_duration_ms_avg": 275.1818181818182,
+        "pre_tool_hook_duration_ms_p50": 118,
+        "pre_tool_hook_duration_ms_p95": 1035,
+        "pre_tool_hook_duration_ms_p99": 5145.600000000001
+      },
+      "lastFpsAverage": 2.15,
+      "lastFpsLow1Pct": 175.54
     },
     "/Users/anh.th": {
       "allowedTools": [],
@@ -239,7 +241,15 @@
         "hook_duration_ms_p50": 312,
         "hook_duration_ms_p95": 312,
         "hook_duration_ms_p99": 312
-      }
+      },
+      "disabledMcpServers": [
+        "plugin:everything-claude-code:github",
+        "plugin:everything-claude-code:context7",
+        "plugin:everything-claude-code:exa",
+        "plugin:everything-claude-code:memory",
+        "plugin:everything-claude-code:playwright",
+        "plugin:everything-claude-code:sequential-thinking"
+      ]
     }
   },
   "claudeCodeFirstTokenDate": "2025-06-23T08:09:48.917949Z",
@@ -347,8 +357,8 @@
       "lastUsedAt": 1774846300963
     },
     "opsx:explore": {
-      "usageCount": 67,
-      "lastUsedAt": 1775033263570
+      "usageCount": 88,
+      "lastUsedAt": 1775278792884
     },
     "opsx:propose": {
       "usageCount": 18,
@@ -590,5 +600,5 @@
     "workspaceRole": null,
     "organizationName": "anh.th@amanotes.com's Organization"
   },
-  "ideHintShownCount": 3
+  "ideHintShownCount": 5
 }
