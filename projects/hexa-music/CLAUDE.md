@@ -5,6 +5,19 @@ Unity hexagonal puzzle game (Amanotes NGD)
 - Namespace: `Amanotes.Echo.HexaMusic` (default), check folder for variations
 - Repo: `gitlab.amanotes.net/echo/hexa-music` (main: prod, dev: development)
 
+## RTK Tool Preferences
+
+The RTK hook only rewrites `Bash` tool calls. Built-in `Read`, `Grep`, and `Glob` tools bypass it.
+For token-saving compact output on heavy operations, use Bash with `rtk` instead:
+
+```bash
+rtk read <file>          # instead of Read tool (large files)
+rtk grep <pattern> <dir> # instead of Grep tool (multi-file search)
+rtk find <pattern>       # instead of Glob tool (file discovery)
+```
+
+Use built-in tools for small, focused reads where token savings are minimal.
+
 ## CRITICAL: Tool Usage for Spawned Agents
 
 **Serena MCP - MEMORY ONLY:**
@@ -51,26 +64,18 @@ Unity hexagonal puzzle game (Amanotes NGD)
 
 **State Machine:** NoneState → StartState → PlayState → WinState/LoseState/PauseState
 
-**Data:** ScriptableObjects (LevelData, LevelDatabase, Configuration, *ConfigSO)
+**Data:** ScriptableObjects (LevelData, LevelDatabase, Configuration, DirectionConfig, *ConfigSO)
+- DirectionConfig: centralized hexagon visual properties (scale, heights, animation durations, easing, angles)
 **Player Data:** Partial classes (Level, Currency, Booster, Life, DailyQuest, Tutorial, Profile)
-
-### Grid & Level Management
-
-**GameSessionData:**
-- `LevelId`: "1", "Grid_12" (Quick Play)
-- `GridId`: "1", "12" (actual file: `Levels/Grids/{GridId}.json`)
-
-**Cache:** `GridDataManager._grids` + `GridConfigManager._gridCache` (both use GridId)
-- Invalidate: `LevelsManager.InvalidateGridCache(gridId)` + `GridConfigManager.InvalidateGridCache(gridId)`
-- Editor: `LevelGridEditor.InvalidateCache()` after bulk ops
-
-**Level Creator:** LevelCreatorWindow (7 partials) - SetupTab, GameplayTab, GridTab, ImportTab, ToolsTab, OverviewTab, PuzzleTab
-- CSV Import: `CsvToGridConverter` (x, y, direction, type, branches)
-- Runtime Editor: pause/edit/save in PlayMode
 
 ### Tech Stack
 
 **Animation:** LitMotion (preferred), DOTween Pro, VisualState2
+- **CRITICAL LitMotion Rule:** Every `MotionHandle` MUST be cancelled in `OnDisable()`. Infinite loops (`WithLoops(-1)`) are especially dangerous — they keep running after the GameObject is destroyed, causing `MissingReferenceException`. Pattern:
+```csharp
+MotionHandle _handle;
+void OnDisable() { if (_handle.IsActive()) _handle.Cancel(); }
+```
 **Async:** UniTask (replaces Coroutines)
 ```csharp
 public async UniTask<bool> DoAsync(CancellationToken ct) {
@@ -90,12 +95,14 @@ public async UniTask<bool> DoAsync(CancellationToken ct) {
 ## Code Style
 
 **Hard Rules (no exceptions):**
-❌ XML docs, `#region`/`#pragma`
-❌ MonoBehaviour constructors — use `Awake()` or `Init()`
+❌ MonoBehaviour constructors — use `Awake()` or `Start()` based on execution order
 ❌ `try/catch` — use early returns; `try/finally` is OK
-❌ `PlayerPrefs` for progression — use `PlayerDataManager`
+❌ `PlayerPrefs` for play progression — use `PlayerDataManager`; OK for simple mechanics
+❌ Bare `+=` on C# events without preceding `-=` when subscription can repeat (views surviving retry)
 
 **Soft Rules (avoid unless clearly justified):**
+⚠️ XML docs — OK for explaining critical/non-obvious methods
+⚠️ `#region` — OK for grouping related methods, improves readability in large files
 ⚠️ Comments — only for non-obvious logic, never for obvious code
 ⚠️ Tiny methods under 5 lines — inline unless reused or named for clarity
 ⚠️ Over-engineering: helpers/abstractions used once, feature flags for trivial cases, backwards-compat shims
@@ -113,31 +120,30 @@ public async UniTask<bool> DoAsync(CancellationToken ct) {
 ✅ Fields over properties; `Array.Empty<T>()` over `new T[0]`
 ✅ Extension methods in `Utils/Extensions/`; one file per class
 
-**Before/After:**
-```csharp
-// ❌ WRONG
-private int _score;
-if (obj != null) { DoThing(obj); }
-try { DoWork(); } catch (Exception e) { Debug.Log(e); }
-namespace Amanotes.Echo.HexaMusic { public class Foo { } }
-
-// ✅ CORRECT
-int _score;
-if (obj is null) return;
-DoWork();
-namespace Amanotes.Echo.HexaMusic;
-public class Foo { }
-```
-
 **CRITICAL: Always use `using` directives at top, never fully qualified names in code.**
 ```csharp
-// ❌ WRONG
+// ❌ WRONG - Fully qualified in code
 var levelId = HexaMusic.GameplayManager.Instance?.GetCurrentGameSession()?.LevelId;
+HexaMusic.Analytics.AnalyticsManager.LogEvent(levelId);
 
-// ✅ CORRECT
+// ✅ CORRECT - Using directives at top
 using Amanotes.Echo.HexaMusic;
+using Amanotes.Echo.HexaMusic.Analytics;
+
 var levelId = GameplayManager.Instance?.GetCurrentGameSession()?.LevelId;
+AnalyticsManager.LogEvent(levelId);
 ```
+
+**Event Subscription Safety:**
+```csharp
+// ❌ WRONG — double-subscribe if called again without unsubscribe
+gridManager.OnContainerUnregistered += OnContainerUnregistered;
+
+// ✅ CORRECT — always unsubscribe first
+gridManager.OnContainerUnregistered -= OnContainerUnregistered;
+gridManager.OnContainerUnregistered += OnContainerUnregistered;
+```
+Views like GameplayView survive level retries without OnDisable/OnEnable cycle. Any event subscription triggered by visibility events or repeated initialization must guard against double-subscribe.
 
 **Odin Inspector:** Always wrap with `#if ODIN_INSPECTOR`
 
@@ -157,6 +163,7 @@ var levelId = GameplayManager.Instance?.GetCurrentGameSession()?.LevelId;
 **Modify Cell:** Find in `Behaviors/`, read partials, understand interfaces, minimal changes, verify compilation
 **Add Feature:** Use managers, ScriptableObjects for config, event-driven, UniTask for async, pooling
 **Debug Race Conditions:** Check `_isRotating`, `_hasDropZoneAnimations` flags
+**Booster UI Visibility:** StartState owns startup, PauseState owns pause, BoosterUI owns mode changes. BoosterManager does NOT dispatch visibility events. Buttons default hidden, shown by owner.
 **Artwork:** Scene View for transforms, X rotation = 65° validation
 
 ## Key Features (Summary)
@@ -200,24 +207,82 @@ var levelId = GameplayManager.Instance?.GetCurrentGameSession()?.LevelId;
 - Format: x, y, direction, type, branches
 - Auto-detects delimiters, configurable type mappings, branch resolution
 
-## Editor Button Colors
-
-Cyan (40px): Mode | Bright Green (35px): Save | Bright Blue (35px): Load
-Green (30px): Create | Yellow (30px): Validate | Red (30px): Destruct
-Blue (30px): Update | Purple (30px): Quick Play | Cyan (30px): Regenerate
-
 ## Notes
 
-- 90+ Serena memories for detailed patterns
+- Check Serena memories for detailed patterns
 - All SerializedFields in main file (partial classes)
-- PlayerDataManager + LoadSaveData (no PlayerPrefs for progression)
-- Prefer SerializeField refs over singletons (except VFXManager, GameplayManager)
 - Always verify compilation, code quality > speed
 - Unity JSON: no parameterized constructors, read-only fields, properties without `[field: SerializeField]`
 
 ## Memory Sync Protocol
 
 When user says "update memories":
-1. Check this file for gaps
-2. Extract new patterns/fixes from conversation
-3. Update AGENTS.md with concise additions
+1. Extract new patterns/fixes from conversation
+2. Write/update relevant Serena memories
+3. Check CLAUDE.md for gaps and update if needed
+
+# CLAUDE.md
+
+Behavioral guidelines to reduce common LLM coding mistakes. Merge with project-specific instructions as needed.
+
+**Tradeoff:** These guidelines bias toward caution over speed. For trivial tasks, use judgment.
+
+## 1. Think Before Coding
+
+**Don't assume. Don't hide confusion. Surface tradeoffs.**
+
+Before implementing:
+- State your assumptions explicitly. If uncertain, ask.
+- If multiple interpretations exist, present them - don't pick silently.
+- If a simpler approach exists, say so. Push back when warranted.
+- If something is unclear, stop. Name what's confusing. Ask.
+
+## 2. Simplicity First
+
+**Minimum code that solves the problem. Nothing speculative.**
+
+- No features beyond what was asked.
+- No abstractions for single-use code.
+- No "flexibility" or "configurability" that wasn't requested.
+- No error handling for impossible scenarios.
+- If you write 200 lines and it could be 50, rewrite it.
+
+Ask yourself: "Would a senior engineer say this is overcomplicated?" If yes, simplify.
+
+## 3. Surgical Changes
+
+**Touch only what you must. Clean up only your own mess.**
+
+When editing existing code:
+- Don't "improve" adjacent code, comments, or formatting.
+- Don't refactor things that aren't broken.
+- Match existing style, even if you'd do it differently.
+- If you notice unrelated dead code, mention it - don't delete it.
+
+When your changes create orphans:
+- Remove imports/variables/functions that YOUR changes made unused.
+- Don't remove pre-existing dead code unless asked.
+
+The test: Every changed line should trace directly to the user's request.
+
+## 4. Goal-Driven Execution
+
+**Define success criteria. Loop until verified.**
+
+Transform tasks into verifiable goals:
+- "Add validation" → "Write tests for invalid inputs, then make them pass"
+- "Fix the bug" → "Write a test that reproduces it, then make it pass"
+- "Refactor X" → "Ensure tests pass before and after"
+
+For multi-step tasks, state a brief plan:
+```
+1. [Step] → verify: [check]
+2. [Step] → verify: [check]
+3. [Step] → verify: [check]
+```
+
+Strong success criteria let you loop independently. Weak criteria ("make it work") require constant clarification.
+
+---
+
+**These guidelines are working if:** fewer unnecessary changes in diffs, fewer rewrites due to overcomplication, and clarifying questions come before implementation rather than after mistakes.
