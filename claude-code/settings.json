@@ -22,20 +22,15 @@
       "Bash(openspec status --change \"offline-play-restriction\" --json)"
     ]
   },
+  "hooks": {},
   "enabledPlugins": {
     "superpowers@superpowers-marketplace": false,
     "double-shot-latte@superpowers-marketplace": false,
     "elements-of-style@superpowers-marketplace": false,
-    "claude-mem@thedotmack": false,
-    "andrej-karpathy-skills@karpathy-skills": true
+    "andrej-karpathy-skills@karpathy-skills": true,
+    "claude-mem@thedotmack": true
   },
   "extraKnownMarketplaces": {
-    "thedotmack": {
-      "source": {
-        "source": "github",
-        "repo": "thedotmack/claude-mem"
-      }
-    },
     "karpathy-skills": {
       "source": {
         "source": "github",
@@ -45,5 +40,6 @@
   },
   "alwaysThinkingEnabled": false,
   "effortLevel": "medium",
-  "skipDangerousModePermissionPrompt": true
+  "skipDangerousModePermissionPrompt": true,
+  "mcpServers": {}
 }
