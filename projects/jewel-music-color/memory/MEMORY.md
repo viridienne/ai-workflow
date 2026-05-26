@@ -1,0 +1,3 @@
+- [Library Preferences](feedback_library_preferences.md) — LitMotion over DOTween, Zlinq for LINQ, Init Args DI over singletons
+- [Config Events](project_config_event_unification.md) — Keep onLocalConfigLoadedEvent + onRemoteConfigLoadedEvent separate; never merge into one
+- [LevelDatabase Pattern](project_level_database_pattern.md) — Levels config JSON with embedded grid CDN metadata; wrapper class for JsonUtility
