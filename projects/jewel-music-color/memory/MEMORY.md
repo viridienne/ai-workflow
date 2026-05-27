@@ -1,3 +1,7 @@
 - [Library Preferences](feedback_library_preferences.md) — LitMotion over DOTween, Zlinq for LINQ, Init Args DI over singletons
 - [Config Events](project_config_event_unification.md) — Keep onLocalConfigLoadedEvent + onRemoteConfigLoadedEvent separate; never merge into one
 - [LevelDatabase Pattern](project_level_database_pattern.md) — Levels config JSON with embedded grid CDN metadata; wrapper class for JsonUtility
+- [Gameplay Demo Scene Setup](project_gameplay_demo_scene_setup.md) — Scripts done, Inspector wiring still needed: prefabs, scene refs on GameplayManager, TrayPanel children
+- [GameplayConfig SO](project_gameplay_config_so.md) — Single SO for board/gem/camera tuning; GemScale moved here from GemSpriteConfig; assign in GameplayManager Inspector
+- [Camera Pan/Zoom](project_camera_pan_zoom.md) — Pinch zoom + pan in GameplayCameraController; board-clamped; InputConsumed guards gem selection; padding bug fixed
+- [Tray Slot Tap](project_tray_slot_tap.md) — Button-based tap-to-place on TraySlot; Physics2D kept for world gems; TraySlot prefab still needs Button component wired in Inspector
