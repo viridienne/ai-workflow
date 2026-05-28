@@ -5,3 +5,7 @@
 - [GameplayConfig SO](project_gameplay_config_so.md) — Single SO for board/gem/camera tuning; GemScale moved here from GemSpriteConfig; assign in GameplayManager Inspector
 - [Camera Pan/Zoom](project_camera_pan_zoom.md) — Pinch zoom + pan in GameplayCameraController; board-clamped; InputConsumed guards gem selection; padding bug fixed
 - [Tray Slot Tap](project_tray_slot_tap.md) — Button-based tap-to-place on TraySlot; Physics2D kept for world gems; TraySlot prefab still needs Button component wired in Inspector
+- [Gem Placement Animation](project_gem_placement_animation.md) — Board↔tray fly via GemCanvas pool; sequential UniTask pattern; TrayFlyDuration separate from FlyDuration (canvas vs world space)
+- [Tray Refactor](project_tray_refactor.md) — Array→List with stateless UI; stable sort preserves insertion order; RefreshTray() after mutations
+- [Auto-Play System](project_auto_play.md) — Greedy solver via SRDebugger toggle; StepDelay tunable; fixed LockedCount bug (PlaceGemOnBoard must increment it)
+- [Time Attack Mode](project_time_attack.md) — LevelData.TimeLimit (0=unlimited); countdown in PlayState.Update(); GameplayTimerView display-only; WinView+LoseView placeholder stubs; Inspector wiring pending
