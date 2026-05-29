@@ -3,9 +3,11 @@
 - [LevelDatabase Pattern](project_level_database_pattern.md) — Levels config JSON with embedded grid CDN metadata; wrapper class for JsonUtility
 - [Gameplay Demo Scene Setup](project_gameplay_demo_scene_setup.md) — Scripts done, Inspector wiring still needed: prefabs, scene refs on GameplayManager, TrayPanel children
 - [GameplayConfig SO](project_gameplay_config_so.md) — Single SO for board/gem/camera tuning; GemScale moved here from GemSpriteConfig; assign in GameplayManager Inspector
-- [Camera Pan/Zoom](project_camera_pan_zoom.md) — Pinch zoom + pan in GameplayCameraController; board-clamped; InputConsumed guards gem selection; padding bug fixed
+- [Camera Pan/Zoom](project_camera_pan_zoom.md) — Smooth LitMotion zoom, pan, board-clamped; config via SerializeField _config (no params); PanExtra* fields for UI-obscured areas; docs/truths/camera-pan-zoom.md
 - [Tray Slot Tap](project_tray_slot_tap.md) — Button-based tap-to-place on TraySlot; Physics2D kept for world gems; TraySlot prefab still needs Button component wired in Inspector
 - [Gem Placement Animation](project_gem_placement_animation.md) — Board↔tray fly via GemCanvas pool; sequential UniTask pattern; TrayFlyDuration separate from FlyDuration (canvas vs world space)
 - [Tray Refactor](project_tray_refactor.md) — Array→List with stateless UI; stable sort preserves insertion order; RefreshTray() after mutations
 - [Auto-Play System](project_auto_play.md) — Greedy solver via SRDebugger toggle; StepDelay tunable; fixed LockedCount bug (PlaceGemOnBoard must increment it)
 - [Time Attack Mode](project_time_attack.md) — LevelData.TimeLimit (0=unlimited); countdown in PlayState.Update(); GameplayTimerView display-only; WinView+LoseView placeholder stubs; Inspector wiring pending
+- [Save & Resume](project_save_resume.md) — per-level slots in SavedGamesWrapper; PlayLevel() owns resume-or-start; completionPercent for future gallery; docs/truths/save-resume.md
+- [Docs Reference](reference_docs.md) — docs/ folder: truths/ (ground truth), specs/proposals/, bugs/ post-mortems, prd/
